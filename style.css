@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@500&family=Cormorant+SC:wght@500;700');
+
+/* root varibles */
+:root{
+    /* colors */
+    --dark-color: #111111;
+    --medium-color: #464646;
+    --light-color: #F5F5F5;
+
+    /* fonts */
+    --body-font: 'Akshar', sans-serif;
+    --logo-font: 'Cormorant SC', serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: var(--body-font);
+    background: url(pexels-pixabay-161245.jpg) no-repeat center center / cover;
+}
+
+/* header styling */
+
+/* nav logo css */
+
+header{
+    background-color: rgba(245, 245, 245, 0.8);
+}
+/* sorulabilir ? */
+header .nav{
+    z-index: 1;
+    opacity: 1;
+}
+
+.nav{
+    display: flex;
+    flex-wrap: wrap; /*Ekran küçüldüğünde, child'ların bir sonraki satıra geçmesini sağlar*/
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    /* position: fixed; */
+    padding: 0 12px;
+}
+
+.nav_logo{
+    text-decoration: none;
+    color: var(--dark-color);
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    padding: 15px;
+}
+
+.nav_logo span{
+    color: var(--medium-color);
+}
+
+/* navbar */
+
+.navbar{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+.menu{
+    margin: 10px;
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav_link{
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+.nav_link:hover{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#toggler,.nav label{
+    display: none;
+    font-size: 25px;
+}
+
+/* responsiveness */
+
+@media screen and (max-width: 768px) {
+
+    .nav_logo{
+        font-size: 35px;
+    }
+
+    .menu{
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .list{
+        flex-direction: column; /* default olarak row olan yönü değiştirir (child'ların alt alta gelmesi için)*/
+        align-items: center;
+        padding: 20px;
+    }
+
+    .list a{
+        color: var(--light-color);
+    }
+
+    .nav label{
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #toggler:checked ~ .menu{
+        max-height: 100%;
+        background-color: var(--dark-color);
+        z-index: 1;
+        transition: 0.5s;
+    }
+}
+
+/* Main section css */
+
+.home{
+    /* background: url(/img/pexels-pixabay-161245.jpg) no-repeat center center;
+    background: cover; */
+    min-height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Cormorant SC', serif;
+}
+
+.home-title{
+    font-size: 100px;
+    padding: 10px;
+    font-weight: 900;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--light-color);
+    border-radius: 10px;
+}
+
+.home-play{
+    text-align: center;
+    font-weight: 700;
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--light-color);
+    border-radius: 15px;
+}
+
+.home-play-text{
+    margin: 1.5rem;
+}
+
+.play{
+    color: var(--light-color);
+}
+/* responsiveness */
+
+@media screen and (max-width: 768px) {
+    .home{
+        flex-direction: column;
+    }
+
+    .home-title{
+        text-align: left;
+        font-size: 80px;
+    }
+}
+
+/* social media */
+footer{
+    align-items: baseline;
+}
+.social-media{
+    padding-top: 300px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50%;
+    margin-right: 50%;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.social-media::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: rgb(37, 37, 37);
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+.icn{
+    display: inline-block;
+    font-size: 50px;
+    margin: 10px;
+    animation: float 5s ease-in-out infinite;
+    color: var(--dark-color);
+}
+
+.icn:hover{
+    box-shadow: inset -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0.5);
+    border-radius: 18px;
+}
+/* kayma animasyonu için */
+
+.ri-facebook-circle-line{
+    animation-delay: 1s;
+}
+.ri-instagram-line{
+    animation-delay: 1.5s;
+}
+.ri-twitter-line{
+    animation-delay: 2s;
+}
+
+@keyframes float{
+
+    0%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-15px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
